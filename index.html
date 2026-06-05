@@ -751,5 +751,14 @@
   </div>
 </footer>
 
+<script>
+  fetch('https://api.countapi.xyz/hit/Wynne-wyx-shumei-cases/visits')
+    .then(res => res.json())
+    .then(data => {
+      console.log('%c 📊 访问人数:', 'color: #004BE2; font-weight: bold;', data.value.toLocaleString());
+      console.log('%c 提示: 按 F12 打开开发者工具 → 切换到 Console 标签即可查看', 'color: #94a3b8; font-size: 12px;');
+    });
+</script>
+
 </body>
 </html>
