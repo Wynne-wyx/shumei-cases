@@ -15,7 +15,6 @@
   body {
     font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
     background-color: #f7fafc;
-    /* 全局精密数字矩阵网格 */
     background-image: 
       linear-gradient(rgba(19, 203, 185, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 75, 226, 0.02) 1px, transparent 1px);
@@ -27,7 +26,7 @@
     position: relative;
   }
 
-  /* 动态霓虹引力流光背景（底层涌动） */
+  /* 动态霓虹引力流光背景 */
   body::before {
     content: '';
     position: fixed;
@@ -101,7 +100,7 @@
   /* Header 基础层 */
   .header {
     background: transparent;
-    padding: 50px 20px 40px; /* 稍微压缩顶部间距，看起来更紧凑 */
+    padding: 50px 20px 40px;
     text-align: center;
     position: relative;
   }
@@ -125,7 +124,6 @@
     border: 1px solid rgba(255, 255, 255, 0.8);
   }
 
-  /* 科技边框：四角环绕流光轨道 */
   .intro-card::before {
     content: '';
     position: absolute;
@@ -140,7 +138,6 @@
     animation: borderRotate 8s linear infinite;
   }
 
-  /* 内部全息网格层 */
   .card-bg-grid {
     position: absolute;
     inset: 0;
@@ -157,7 +154,6 @@
     animation: gridScroll 30s infinite linear;
   }
 
-  /* 随机量子闪烁节点 */
   .card-bg-dots {
     position: absolute;
     inset: 0;
@@ -204,19 +200,9 @@
     padding-top: 25px;
   }
 
-  /* 核心动效定义 */
-  @keyframes borderRotate {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
-  }
-  @keyframes gridScroll {
-    0% { background-position: 0 0; }
-    100% { background-position: 0 100%; }
-  }
-  @keyframes quantumFlicker {
-    0% { opacity: 0.3; transform: scale(0.98); }
-    100% { opacity: 1; transform: scale(1.02); }
-  }
+  @keyframes borderRotate { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
+  @keyframes gridScroll { 0% { background-position: 0 0; } 100% { background-position: 0 100%; } }
+  @keyframes quantumFlicker { 0% { opacity: 0.3; transform: scale(0.98); } 100% { opacity: 1; transform: scale(1.02); } }
 
   .container {
     max-width: 1200px;
@@ -243,7 +229,7 @@
     border-radius: 2px;
   }
 
-  /* 案例卡片 */
+  /* 案例大卡片 */
   .form-section {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 18px;
@@ -288,7 +274,6 @@
     margin-right: 20px;
     flex-shrink: 0;
     box-shadow: 0 4px 12px rgba(19, 203, 185, 0.3);
-    position: relative;
   }
 
   .form-title-block h2 {
@@ -308,11 +293,68 @@
     margin-bottom: 16px;
   }
 
+  /* 标签通用样式 */
+  .content-sub-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .content-sub-label::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 14px;
+    background-color: rgb(0, 75, 226);
+    border-radius: 2px;
+  }
+
+  /* 🎯 优化：海报4张展示格局修改为 2x2 且完整展示 */
+  .image-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 16px 0 24px 0;
+  }
+
+  .image-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    background: #ffffff;
+    position: relative;
+    border: 1px solid #e2e8f0;
+    padding: 10px; /* 留出微距框线，凸显完整海报感 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(19, 203, 185, 0.25);
+  }
+
+  .image-card img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain; /* 🎯 确保海报图片完整展示不被裁剪 */
+    display: block;
+    border-radius: 6px;
+  }
+
+  /* 🎯 文章结构块 */
   .article-structure {
     background: rgba(19, 203, 185, 0.03);
     border-left: 3px solid rgb(19, 203, 185);
-    padding: 16px 20px;
-    margin: 20px 0;
+    padding: 18px 20px;
+    margin: 0 0 24px 0;
     border-radius: 0 10px 10px 0;
     border-top: 1px solid rgba(19, 203, 185, 0.05);
     border-right: 1px solid rgba(19, 203, 185, 0.05);
@@ -325,7 +367,7 @@
   }
 
   .article-structure li {
-    padding: 5px 0;
+    padding: 6px 0;
     color: #334155;
     font-size: 15px;
     cursor: default;
@@ -338,52 +380,11 @@
     font-weight: bold;
   }
 
-  .image-grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  /* 海报墙 */
-  .image-card {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-    background: #f1f5f9;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-  }
-
-  .image-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(19, 203, 185, 0.3);
-  }
-
-  .image-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, rgba(0, 75, 226, 0.15));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-  .image-card:hover::after {
-    opacity: 1;
-  }
-
-  .image-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
-  }
-
+  /* 可点击的发布示例列表 */
   .link-list {
     list-style: none;
     padding: 0;
+    margin-bottom: 24px;
   }
 
   .link-list li {
@@ -444,21 +445,9 @@
     align-items: baseline;
   }
 
-  .meta-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .meta-label {
-    color: rgb(0, 75, 226);
-    font-weight: 600;
-    min-width: 85px;
-    flex-shrink: 0;
-  }
-
-  .meta-value {
-    color: #475569;
-    flex: 1;
-  }
+  .meta-item:last-child { margin-bottom: 0; }
+  .meta-label { color: rgb(0, 75, 226); font-weight: 600; min-width: 85px; flex-shrink: 0; }
+  .meta-value { color: #475569; flex: 1; }
 
   /* 粒子传输流程轨道 */
   .process-flow {
@@ -478,6 +467,14 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
   }
 
+  /* 🎯 优化：统一将所有发布流程的最终节点设为主调绿色 */
+  .flow-step-publish {
+    font-weight: bold; 
+    border-color: rgb(19, 203, 185); 
+    background: rgba(19, 203, 185, 0.08);
+    color: #0f766e;
+  }
+
   .flow-arrow-animated {
     color: rgb(19, 203, 185);
     font-weight: bold;
@@ -486,9 +483,9 @@
   }
 
   @keyframes pulsePulse {
-    0% { transform: translateX(0); opacity: 0.4; filter: drop-shadow(0 0 0px rgba(19, 203, 185, 0)); }
-    50% { transform: translateX(4px); opacity: 1; filter: drop-shadow(0 0 3px rgba(19, 203, 185, 0.8)); }
-    100% { transform: translateX(0); opacity: 0.4; filter: drop-shadow(0 0 0px rgba(19, 203, 185, 0)); }
+    0% { transform: translateX(0); opacity: 0.4; }
+    50% { transform: translateX(4px); opacity: 1; }
+    100% { transform: translateX(0); opacity: 0.4; }
   }
 
   .notice {
@@ -497,39 +494,22 @@
     padding: 24px 30px;
     margin-top: 40px;
     border-left: 4px solid rgb(19, 203, 185);
+    box-shadow: 0 10px 30px rgba(0, 75, 226, 0.02);
     border-right: 1px solid rgba(0, 75, 226, 0.05);
     border-top: 1px solid rgba(0, 75, 226, 0.05);
     border-bottom: 1px solid rgba(0, 75, 226, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 75, 226, 0.02);
   }
 
-  .notice p {
-    color: #64748b;
-    font-size: 14px;
-    line-height: 1.8;
-  }
+  .notice p { color: #64748b; font-size: 14px; line-height: 1.8; }
+  .closing { text-align: center; padding: 60px 20px 40px; color: #475569; font-size: 16px; max-width: 800px; margin: 0 auto; }
+  .closing p { margin-bottom: 12px; }
 
-  .closing {
-    text-align: center;
-    padding: 60px 20px 40px;
-    color: #475569;
-    font-size: 16px;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .closing p {
-    margin-bottom: 12px;
-  }
-
-  /* 深邃数字星空页脚 */
+  /* 页脚 */
   .footer {
     background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
     color: #94a3b8;
     padding: 45px 20px 35px;
     font-size: 14px;
-    letter-spacing: 0.5px;
     border-top: 1px solid rgba(19, 203, 185, 0.1);
   }
 
@@ -543,13 +523,7 @@
     gap: 20px;
   }
 
-  .footer-logo {
-    height: 32px;
-    width: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.85;
-  }
-
+  .footer-logo { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
   .footer-text span {
     background: linear-gradient(90deg, rgb(19, 203, 185), rgb(0, 75, 226));
     -webkit-background-clip: text;
@@ -563,11 +537,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @media (max-width: 992px) {
-    .image-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .image-card img { height: 380px; }
-  }
-
   @media (max-width: 768px) {
     .navbar { padding: 12px 20px; }
     .logo { height: 28px; }
@@ -576,8 +545,7 @@
     .main-title { font-size: 28px; }
     .sub-title { font-size: 18px; }
     .form-section { padding: 24px; }
-    .image-grid-4 { grid-template-columns: 1fr; }
-    .image-card img { height: 400px; }
+    .image-grid-2x2 { grid-template-columns: 1fr; gap: 16px; }
     .form-header { flex-direction: column; text-align: center; }
     .form-number { margin-right: 0; margin-bottom: 12px; }
     .meta-item { flex-direction: column; }
@@ -590,29 +558,32 @@
 
 <div class="top-bar"></div>
 
+<!-- 顶部导航栏 -->
 <nav class="navbar">
   <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEVDXFqIma6uX-l3PMTb0Pn1mboiJxJMQACuCIAAuKuEFXwPNynTBYtbTsE.png" alt="数美科技" class="logo">
   <div class="nav-tag">客户案例征集</div>
 </nav>
 
+<!-- Header 容器 -->
 <header class="header">
   <div class="header-content">
-    
     <div class="intro-card">
-      <div class="card-bg-grid"></div>  <div class="card-bg-dots"></div>  <h1 class="main-title">"共建清朗可信赖的数字世界"</h1>
+      <div class="card-bg-grid"></div>
+      <div class="card-bg-dots"></div>
+      <h1 class="main-title">"共建清朗可信赖的数字世界"</h1>
       <h2 class="sub-title">数美科技客户案例征集活动</h2>
       <div class="intro-text">
         <p>在生成式AI与数字化业务快速发展的背景下，AI安全、内容治理、平台生态建设等议题，正成为行业持续关注的重要方向。</p>
         <p style="margin-top: 12px;">数美科技希望联合行业伙伴，共同输出优秀实践案例，以专业化内容，呈现企业在AI安全治理、平台风险防控、内容生态建设等方面的探索成果，共建更加安全、可信、健康的数字世界。</p>
       </div>
     </div>
-
   </div>
 </header>
 
 <main class="container">
   <h3 class="section-title">案例内容形式</h3>
 
+  <!-- 形式1：签约海报 -->
   <section class="form-section">
     <div class="form-header">
       <div class="form-number">01</div>
@@ -625,7 +596,8 @@
     <div class="form-content">
       <p>签约海报为轻量化传播形式。整体内容以"达成合作""共同建设安全可信AI应用生态"等方向为主，不涉及敏感业务信息及具体数据，重点体现双方在AI安全、内容治理、数字生态建设等方向的合作。</p>
 
-      <div class="image-grid-4">
+      <!-- 🎯 已改为 2x2 完整海报墙展示格局 -->
+      <div class="image-grid-2x2">
         <div class="image-card">
           <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEVC99qIjuKUFyGV-Peu0b5rXtMViDh8QACuyAAAuKuEFUEH7AZ2NQfDTsE.jpg" alt="数美科技签约Spicychat">
         </div>
@@ -652,13 +624,14 @@
             <span class="flow-step">确认海报文案</span> <span class="flow-arrow-animated">→</span> 
             <span class="flow-step">制作及修改</span> <span class="flow-arrow-animated">→</span> 
             <span class="flow-step">双方确认</span> <span class="flow-arrow-animated">→</span> 
-            <span class="flow-step" style="font-weight:bold; border-color:rgb(19, 203, 185); background: rgba(19, 203, 185, 0.05);">发布</span>
+            <span class="flow-step flow-step-publish">发布</span>
           </span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 形式2：行业案例稿 -->
   <section class="form-section">
     <div class="form-header">
       <div class="form-number">02</div>
@@ -671,6 +644,8 @@
     <div class="form-content">
       <p>行业案例稿/签约稿将结合企业所在行业及业务场景，从行业趋势、业务需求、治理实践等角度呈现。整体内容偏行业案例与解决方案方向，体现企业在AI安全、内容治理、风险防控等领域的实践经验与行业价值。</p>
 
+      <!-- 🎯 已添加“文章结构”字样提示 -->
+      <div class="content-sub-label">文章结构</div>
       <div class="article-structure">
         <ul>
           <li>行业背景及企业业务场景</li>
@@ -679,6 +654,8 @@
         </ul>
       </div>
 
+      <!-- 🎯 已添加“发布示例（可点击查看）”字样提示 -->
+      <div class="content-sub-label">发布示例（可点击查看）</div>
       <ul class="link-list">
         <li><a href="https://mp.weixin.qq.com/s/24CTS5_bjqfkQVNqm_SFZg" target="_blank">数美科技与APUS达成合作，共建大模型与AI+移动应用出海产品的优质内容生态</a></li>
         <li><a href="https://mp.weixin.qq.com/s/wLlTXgVNapPlgWCjPMOT5Q" target="_blank">iBox与数美科技达成战略合作，携手构建元宇宙安全生态</a></li>
@@ -698,13 +675,14 @@
             <span class="flow-step">策划与提纲确认</span> <span class="flow-arrow-animated">→</span> 
             <span class="flow-step">采访与写作（或根据材料写作）</span> <span class="flow-arrow-animated">→</span> 
             <span class="flow-step">内容与修改与确认</span> <span class="flow-arrow-animated">→</span> 
-            <span class="flow-step" style="font-weight:bold; border-color:rgb(0, 75, 226); background: rgba(0, 75, 226, 0.05);">发布</span>
+            <span class="flow-step flow-step-publish">发布</span>
           </span>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- 形式3：深度访谈稿 -->
   <section class="form-section">
     <div class="form-header">
       <div class="form-number">03</div>
@@ -717,6 +695,8 @@
     <div class="form-content">
       <p>内容围绕AI安全趋势、企业治理实践、行业挑战与解决方案等方向展开，通过企业视角分享行业经验与实践成果。整体定位偏行业深度内容，树立企业专业形象与行业实践价值。</p>
 
+      <!-- 🎯 已添加“文章结构”字样提示 -->
+      <div class="content-sub-label">文章结构</div>
       <div class="article-structure">
         <ul>
           <li>行业趋势与企业面临的挑战（例如：AIGC带来的内容治理压力、全球化业务中的风控挑战）</li>
@@ -725,6 +705,8 @@
         </ul>
       </div>
 
+      <!-- 🎯 已添加“发布示例（可点击查看）”字样提示 -->
+      <div class="content-sub-label">发布示例（可点击查看）</div>
       <ul class="link-list">
         <li><a href="https://mp.weixin.qq.com/s/CkMqJ9dVK8n6xEL4Gz8igw" target="_blank">对话触漫：漫画App如何做好社区治理？</a></li>
         <li><a href="https://mp.weixin.qq.com/s/3SPRt3IHf9-VqUs9goHL0g" target="_blank">对话LesPark：8年"老"产品，小众文化与持续增长如何并存？</a></li>
@@ -744,7 +726,7 @@
             <span class="flow-step">策划与提纲确认</span> <span class="flow-arrow-animated">→</span> 
             <span class="flow-step">采访与写作</span> <span class="flow-arrow-animated">→</span> 
             <span class="flow-step">内容与修改与确认</span> <span class="flow-arrow-animated">→</span> 
-            <span class="flow-step" style="font-weight:bold; background:#0f172a; color:#fff; border-color:#0f172a;">发布</span>
+            <span class="flow-step flow-step-publish">发布</span>
           </span>
         </div>
       </div>
@@ -756,12 +738,12 @@
   </div>
 
   <div class="closing">
-    <p>AI技术快速发展的同时，行业也正在进入更加重视安全治理与生态建设的新阶段。</p>
     <p>数美科技希望与更多行业伙伴共同推动AI安全实践与数字治理建设，</p>
     <p>通过真实行业案例分享优秀经验，<strong>共建更加清朗、可信赖的数字世界。</strong></p>
   </div>
 </main>
 
+<!-- 页脚 -->
 <footer class="footer">
   <div class="footer-content">
     <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEVDXFqIma6uX-l3PMTb0Pn1mboiJxJMQACuCIAAuKuEFXwPNynTBYtbTsE.png" alt="数美科技" class="footer-logo">
