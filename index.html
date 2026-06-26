@@ -313,7 +313,7 @@
     border-radius: 2px;
   }
 
-  /* 🎯 优化：海报4张展示格局修改为 2x2 且完整展示 */
+  /* 海报4张展示格局为 2x2 且完整展示 */
   .image-grid-2x2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -329,7 +329,7 @@
     background: #ffffff;
     position: relative;
     border: 1px solid #e2e8f0;
-    padding: 10px; /* 留出微距框线，凸显完整海报感 */
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -344,12 +344,12 @@
     width: 100%;
     height: auto;
     max-height: 100%;
-    object-fit: contain; /* 🎯 确保海报图片完整展示不被裁剪 */
+    object-fit: contain;
     display: block;
     border-radius: 6px;
   }
 
-  /* 🎯 文章结构块 */
+  /* 文章结构块 */
   .article-structure {
     background: rgba(19, 203, 185, 0.03);
     border-left: 3px solid rgb(19, 203, 185);
@@ -449,7 +449,7 @@
   .meta-label { color: rgb(0, 75, 226); font-weight: 600; min-width: 85px; flex-shrink: 0; }
   .meta-value { color: #475569; flex: 1; }
 
-  /* 粒子传输流程轨道 */
+  /* 流程轨道 */
   .process-flow {
     display: inline-flex;
     flex-wrap: wrap;
@@ -467,7 +467,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.02);
   }
 
-  /* 🎯 优化：统一将所有发布流程的最终节点设为主调绿色 */
+  /* 统一发布流程最终节点颜色（主调绿色） */
   .flow-step-publish {
     font-weight: bold; 
     border-color: rgb(19, 203, 185); 
@@ -558,13 +558,11 @@
 
 <div class="top-bar"></div>
 
-<!-- 顶部导航栏 -->
 <nav class="navbar">
   <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEVDXFqIma6uX-l3PMTb0Pn1mboiJxJMQACuCIAAuKuEFXwPNynTBYtbTsE.png" alt="数美科技" class="logo">
   <div class="nav-tag">客户案例征集</div>
 </nav>
 
-<!-- Header 容器 -->
 <header class="header">
   <div class="header-content">
     <div class="intro-card">
@@ -583,7 +581,6 @@
 <main class="container">
   <h3 class="section-title">案例内容形式</h3>
 
-  <!-- 形式1：签约海报 -->
   <section class="form-section">
     <div class="form-header">
       <div class="form-number">01</div>
@@ -596,7 +593,6 @@
     <div class="form-content">
       <p>签约海报为轻量化传播形式。整体内容以"达成合作""共同建设安全可信AI应用生态"等方向为主，不涉及敏感业务信息及具体数据，重点体现双方在AI安全、内容治理、数字生态建设等方向的合作。</p>
 
-      <!-- 🎯 已改为 2x2 完整海报墙展示格局 -->
       <div class="image-grid-2x2">
         <div class="image-card">
           <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEVC99qIjuKUFyGV-Peu0b5rXtMViDh8QACuyAAAuKuEFUEH7AZ2NQfDTsE.jpg" alt="数美科技签约Spicychat">
@@ -631,7 +627,6 @@
     </div>
   </section>
 
-  <!-- 形式2：行业案例稿 -->
   <section class="form-section">
     <div class="form-header">
       <div class="form-number">02</div>
@@ -644,7 +639,6 @@
     <div class="form-content">
       <p>行业案例稿/签约稿将结合企业所在行业及业务场景，从行业趋势、业务需求、治理实践等角度呈现。整体内容偏行业案例与解决方案方向，体现企业在AI安全、内容治理、风险防控等领域的实践经验与行业价值。</p>
 
-      <!-- 🎯 已添加“文章结构”字样提示 -->
       <div class="content-sub-label">文章结构</div>
       <div class="article-structure">
         <ul>
@@ -654,7 +648,6 @@
         </ul>
       </div>
 
-      <!-- 🎯 已添加“发布示例（可点击查看）”字样提示 -->
       <div class="content-sub-label">发布示例（可点击查看）</div>
       <ul class="link-list">
         <li><a href="https://mp.weixin.qq.com/s/24CTS5_bjqfkQVNqm_SFZg" target="_blank">数美科技与APUS达成合作，共建大模型与AI+移动应用出海产品的优质内容生态</a></li>
@@ -672,9 +665,8 @@
           <span class="meta-label">发布流程：</span>
           <span class="meta-value process-flow">
             <span class="flow-step">沟通发布意向</span> <span class="flow-arrow-animated">→</span> 
-            <span class="flow-step">策划与提纲确认</span> <span class="flow-arrow-animated">→</span> 
-            <span class="flow-step">采访与写作（或根据材料写作）</span> <span class="flow-arrow-animated">→</span> 
-            <span class="flow-step">内容与修改与确认</span> <span class="flow-arrow-animated">→</span> 
+            <span class="flow-step">基于材料撰写稿件</span> <span class="flow-arrow-animated">→</span> 
+            <span class="flow-step">内容修改与确认</span> <span class="flow-arrow-animated">→</span> 
             <span class="flow-step flow-step-publish">发布</span>
           </span>
         </div>
@@ -682,7 +674,6 @@
     </div>
   </section>
 
-  <!-- 形式3：深度访谈稿 -->
   <section class="form-section">
     <div class="form-header">
       <div class="form-number">03</div>
@@ -695,7 +686,6 @@
     <div class="form-content">
       <p>内容围绕AI安全趋势、企业治理实践、行业挑战与解决方案等方向展开，通过企业视角分享行业经验与实践成果。整体定位偏行业深度内容，树立企业专业形象与行业实践价值。</p>
 
-      <!-- 🎯 已添加“文章结构”字样提示 -->
       <div class="content-sub-label">文章结构</div>
       <div class="article-structure">
         <ul>
@@ -705,7 +695,6 @@
         </ul>
       </div>
 
-      <!-- 🎯 已添加“发布示例（可点击查看）”字样提示 -->
       <div class="content-sub-label">发布示例（可点击查看）</div>
       <ul class="link-list">
         <li><a href="https://mp.weixin.qq.com/s/CkMqJ9dVK8n6xEL4Gz8igw" target="_blank">对话触漫：漫画App如何做好社区治理？</a></li>
@@ -738,12 +727,12 @@
   </div>
 
   <div class="closing">
+    <p>AI技术快速发展的同时，行业也正在进入更加重视安全治理与生态建设的新阶段。</p>
     <p>数美科技希望与更多行业伙伴共同推动AI安全实践与数字治理建设，</p>
     <p>通过真实行业案例分享优秀经验，<strong>共建更加清朗、可信赖的数字世界。</strong></p>
   </div>
 </main>
 
-<!-- 页脚 -->
 <footer class="footer">
   <div class="footer-content">
     <img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAEVDXFqIma6uX-l3PMTb0Pn1mboiJxJMQACuCIAAuKuEFXwPNynTBYtbTsE.png" alt="数美科技" class="footer-logo">
